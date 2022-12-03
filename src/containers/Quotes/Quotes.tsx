@@ -1,11 +1,16 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {QuotesApi, QuotesType} from "../../types";
+import {Categories, QuotesApi, QuotesType} from "../../types";
 import axiosApi from "../../axios-api";
 import Spinner from "../../components/Spinner/Spinner";
 import QuoteCard from "../../components/QuoteCard/QuoteCard";
 import {useParams} from "react-router-dom";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
-const Quotes = () => {
+interface Props {
+  categories: Categories[];
+}
+
+const Quotes: React.FC<Props> = ({categories}) => {
     const {id} = useParams();
 
     const [quotes, setQuotes] = useState<QuotesType[]>([]);
@@ -27,18 +32,21 @@ const Quotes = () => {
           }
         }, [link]);
 
-    console.log(quotes);
-
     useEffect(() => {
       getQuotes().catch(console.error);
     }, [getQuotes]);
 
     return (
-      <div className="d-flex flex-column align-items-center">
-        {loading ? <Spinner/> : quotes.map(quote => (
-          <QuoteCard quote={quote} key={quote.id}/>
-        ))}
+      <div className="d-flex justify-content-between">
+        <Sidebar categories={categories}/>
+        <div className="w-75 d-flex flex-column align-items-center">
+          {loading ? <Spinner/> : quotes.map(quote => (
+            <QuoteCard quote={quote} key={quote.id}/>
+          ))}
+        </div>
       </div>
+
+
     );
   }
 ;

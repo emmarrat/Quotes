@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
 import Quotes from "./containers/Quotes/Quotes";
-import Sidebar from "./components/Sidebar/Sidebar";
+import AddQuote from "./containers/AddQuote/AddQuote";
 
 function App() {
 
@@ -19,18 +19,18 @@ function App() {
       <header>
         <Navbar/>
       </header>
-      <main className="container d-flex mt-5 justify-content-between">
-        <Sidebar categories={categories}/>
-        <div className="w-75">
-          <Routes>
-            <Route path="/" element={(
-              <Quotes/>
-            )}/>
-            <Route path="/quotes/category/:id" element={(
-              <Quotes/>
-            )}/>
-          </Routes>
-        </div>
+      <main className="container mt-5 ">
+        <Routes>
+          <Route path="/" element={(
+            <Quotes categories={categories}/>
+          )}/>
+          <Route path="/quotes/category/:id" element={(
+            <Quotes categories={categories}/>
+          )}/>
+          <Route path="/add-quote" element={(
+            <AddQuote categories={categories}/>
+          )}/>
+        </Routes>
       </main>
     </>
   );

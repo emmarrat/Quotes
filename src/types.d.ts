@@ -3,6 +3,12 @@ export interface Categories {
   id: string;
 }
 
+export interface SingleQuote {
+  author: string;
+  category: string;
+  text: string;
+}
+
 export interface QuotesType {
   author: string;
   category: string;
