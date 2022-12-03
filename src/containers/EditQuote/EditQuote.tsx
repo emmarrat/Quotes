@@ -24,8 +24,8 @@ const EditQuote: React.FC<Props> = ({categories}) => {
     }
   }, [id]);
 
-  useEffect( () => {
-    getQuote().catch(console.error)
+  useEffect(() => {
+    getQuote().catch(console.error);
   }, [getQuote]);
 
   const editQuote = async (quote: SingleQuote) => {
@@ -37,7 +37,6 @@ const EditQuote: React.FC<Props> = ({categories}) => {
       setLoading(false);
     }
   };
-
 
   return (
     <div>

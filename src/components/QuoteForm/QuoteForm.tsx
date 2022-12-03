@@ -33,55 +33,57 @@ const QuoteForm: React.FC<Props> = ({categories, editingQuote, onSubmit, loading
 
   let quoteForm = (
     <>
+      <h2 className="text-center">{editingQuote ? 'Edit quote' : 'Post new quote'}</h2>
+      <form className="mt-3" onSubmit={postQuote}>
+        <div className="d-flex flex-row-reverse">
+          <button onClick={() => navigate('/')} className="btn btn-sm btn-secondary">Cancel</button>
+        </div>
+        <div className="form-group">
+          <label className="form-label">
+            <select
+              className="form-select"
+              required
+              name="category"
+              value={quote.category}
+              onChange={onChangeForm}
 
-    <h2 className="text-center">{editingQuote ? 'Edit quote' : 'Post new quote'}</h2>
-    <form className="mt-3" onSubmit={postQuote}>
-      <div className="d-flex flex-row-reverse">
-        <button onClick={() => navigate('/')} className="btn btn-sm btn-secondary">Cancel</button>
-      </div>
-      <div className="form-group">
-        <label className="form-label">
-          <select
-            className="form-select"
-            required
-            name="category"
-            value={quote.category}
+            >
+              <option disabled value="">Select the category!</option>
+              {categories.map(category => (
+                <option key={category.id}>{category.id}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div className="form-group">
+          <label className="form-label">Author</label>
+          <input
             onChange={onChangeForm}
-          >
-            <option disabled value="">Select the category!</option>
-            {categories.map(category => (
-              <option key={category.id}>{category.id}</option>
-            ))}
-          </select>
-        </label>
-      </div>
-      <div className="form-group">
-        <label className="form-label">Author</label>
-        <input
-          onChange={onChangeForm}
-          name="author"
-          type="text"
-          className="form-control"
-          value={quote.author}
-        />
-      </div>
-      <div className="form-group">
-        <label className="form-label">Quote text</label>
-        <textarea
-          onChange={onChangeForm}
-          name="text"
-          className="form-control"
-          value={quote.text}
-        />
-      </div>
-      <div className="form-group mt-3">
-        <button className="btn btn-success">{editingQuote ? 'Save edits' : 'Post'}</button>
-      </div>
-    </form>
+            name="author"
+            type="text"
+            className="form-control"
+            value={quote.author}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label className="form-label">Quote text</label>
+          <textarea
+            onChange={onChangeForm}
+            name="text"
+            className="form-control"
+            value={quote.text}
+            required
+          />
+        </div>
+        <div className="form-group mt-3">
+          <button className="btn btn-success">{editingQuote ? 'Save edits' : 'Post'}</button>
+        </div>
+      </form>
     </>
   );
 
-  if(loading) {
+  if (loading) {
     quoteForm = (
       <Spinner/>
     );

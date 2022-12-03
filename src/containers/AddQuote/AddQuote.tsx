@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {Categories, SingleQuote} from "../../types";
 import axiosApi from "../../axios-api";
 import QuoteForm from "../../components/QuoteForm/QuoteForm";
+import Spinner from "../../components/Spinner/Spinner";
 
 interface Props {
   categories: Categories[];
@@ -23,7 +24,7 @@ const AddQuote: React.FC<Props> = ({categories}) => {
   }
   return (
     <div>
-     <QuoteForm categories={categories} onSubmit={sendQuote} loading={loading}/>
+      {loading ? <Spinner/> : <QuoteForm categories={categories} onSubmit={sendQuote} loading={loading}/>}
     </div>
   );
 };
