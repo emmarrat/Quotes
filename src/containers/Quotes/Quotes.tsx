@@ -36,15 +36,24 @@ const Quotes: React.FC<Props> = ({categories}) => {
       getQuotes().catch(console.error);
     }, [getQuotes]);
 
+    console.log(quotes)
+
+    const noQuotesMessage = (
+        <div className="w-75 d-flex justify-content-center align-items-center">
+          <h2>Here is no quotes!</h2>
+        </div>
+      );
+
+
     return (
       <>
         <div className="d-flex justify-content-between">
           <Sidebar categories={categories}/>
-          <div className="w-75 d-flex flex-column align-items-center">
+          {quotes.length === 0 ? noQuotesMessage : <div className="w-75 d-flex flex-column align-items-center">
             {loading ? <Spinner/> : quotes.map(quote => (
               <QuoteCard quote={quote} key={quote.id}/>
             ))}
-          </div>
+          </div>}
         </div>
       </>
     );

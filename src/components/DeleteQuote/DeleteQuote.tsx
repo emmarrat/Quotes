@@ -3,7 +3,6 @@ import {useNavigate, useParams} from "react-router-dom";
 import axiosApi from "../../axios-api";
 
 const DeleteQuote = () => {
-
   const {id} = useParams();
   const navigate = useNavigate();
   const deleteQuote = useCallback(async () => {
