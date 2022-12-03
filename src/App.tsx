@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
 import Quotes from "./containers/Quotes/Quotes";
 import AddQuote from "./containers/AddQuote/AddQuote";
+import EditQuote from "./containers/EditQuote/EditQuote";
 
 function App() {
 
@@ -26,6 +27,9 @@ function App() {
           )}/>
           <Route path="/quotes/category/:id" element={(
             <Quotes categories={categories}/>
+          )}/>
+          <Route path="/quotes/edit/:id" element={(
+            <EditQuote categories={categories}/>
           )}/>
           <Route path="/add-quote" element={(
             <AddQuote categories={categories}/>

@@ -45,8 +45,6 @@ const Quotes: React.FC<Props> = ({categories}) => {
           ))}
         </div>
       </div>
-
-
     );
   }
 ;
