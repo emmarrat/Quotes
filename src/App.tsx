@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import Quotes from "./containers/Quotes/Quotes";
 import AddQuote from "./containers/AddQuote/AddQuote";
 import EditQuote from "./containers/EditQuote/EditQuote";
+import DeleteQuote from "./components/DeleteQuote/DeleteQuote";
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
           )}/>
           <Route path="/add-quote" element={(
             <AddQuote categories={categories}/>
+          )}/>
+          <Route path={"/quotes/:id"} element={(
+            <DeleteQuote/>
           )}/>
         </Routes>
       </main>

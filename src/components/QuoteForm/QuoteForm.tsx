@@ -26,7 +26,6 @@ const QuoteForm: React.FC<Props> = ({categories, editingQuote, onSubmit, loading
     }));
   };
 
-  console.log(quote);
   const postQuote = async (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(quote);

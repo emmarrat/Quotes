@@ -6,7 +6,6 @@ const Spinner = () => {
       <strong className="text-success mb-3">Loading...</strong>
       <div className="spinner-border text-success" role="status"></div>
     </div>
-
   );
 };
 

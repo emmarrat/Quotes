@@ -21,7 +21,7 @@ const QuoteCard:React.FC<Props> = ({quote}) => {
           <Link to={"/quotes/edit/" + quote.id} className="btn btn-success me-3">
            Edit
           </Link>
-          <button className="btn btn-danger">Delete</button>
+          <Link to={"/quotes/" + quote.id} className="btn btn-danger">Delete</Link>
         </div>
       </div>
   );
