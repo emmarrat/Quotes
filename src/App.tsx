@@ -7,14 +7,12 @@ import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
 
   const categories = [
-    {name: 'All', id: "/"},
     {name: 'Star Wars', id: "star-wars"},
     {name: 'Super Heroes', id: "super-heroes"},
     {name: 'Motivational', id: "motivational"},
     {name: 'Anime', id: "anime"},
     {name: 'Humor', id: "humor"},
   ];
-
 
   return (
     <>
@@ -26,7 +24,10 @@ function App() {
         <div className="w-75">
           <Routes>
             <Route path="/" element={(
-              <Quotes categories={categories}/>
+              <Quotes/>
+            )}/>
+            <Route path="/quotes/category/:id" element={(
+              <Quotes/>
             )}/>
           </Routes>
         </div>
