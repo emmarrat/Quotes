@@ -46,7 +46,6 @@ const QuoteForm: React.FC<Props> = ({categories, editingQuote, onSubmit, loading
               name="category"
               value={quote.category}
               onChange={onChangeForm}
-
             >
               <option disabled value="">Select the category!</option>
               {categories.map(category => (

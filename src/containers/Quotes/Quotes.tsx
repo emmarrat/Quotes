@@ -24,7 +24,7 @@ const Quotes: React.FC<Props> = ({categories}) => {
         const quote = quotesResponse.data[key];
         quote.id = key;
         return quote;
-      })
+      });
       setQuotes(quotes);
     } finally {
       setLoading(false);
