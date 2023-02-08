@@ -53,10 +53,10 @@ const Quotes: React.FC<Props> = ({categories}) => {
 
   return (
     <>
-      <div className="d-flex justify-content-between">
+      <div className="row d-flex justify-content-between">
         <Sidebar categories={categories}/>
         {quotes.length === 0 ? noQuotesMessage :
-          <div className="w-75 d-flex flex-column align-items-center">
+          <div className="col-12 col-md-9 d-flex flex-column align-items-center">
             {loading ? <Spinner/> : quotes.map(quote => (
               <QuoteCard quote={quote} key={quote.id} deleteQuote={deleteQuote}/>
             ))}

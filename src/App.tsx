@@ -19,7 +19,7 @@ function App() {
       <header>
         <Navbar/>
       </header>
-      <main className="container mt-5 ">
+      <main className="container mt-5">
         <Routes>
           <Route path="/" element={(
             <Quotes categories={categories}/>

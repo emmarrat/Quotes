@@ -9,7 +9,7 @@ interface Props {
 const Sidebar: React.FC<Props> = ({categories}) => {
 
   return (
-    <div className="w-25">
+    <div className="col-12 col-md-3 mb-4">
       <h4 className="mb-3 text-center">Select quotes category</h4>
       <ul className="list-group ">
         <NavLink className="list-group-item bg-gradient" to='/'>All</NavLink>

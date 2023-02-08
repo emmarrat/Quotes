@@ -35,7 +35,7 @@ const QuoteForm: React.FC<Props> = ({categories, editingQuote, onSubmit, loading
     <>
       <h2 className="text-center">{editingQuote ? 'Edit quote' : 'Post new quote'}</h2>
       <form className="mt-3" onSubmit={postQuote}>
-        <div className="d-flex flex-row-reverse">
+        <div className="d-flex flex-row-reverse mb-3">
           <button onClick={() => navigate('/')} className="btn btn-sm btn-secondary">Cancel</button>
         </div>
         <div className="form-group">

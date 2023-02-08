@@ -9,7 +9,7 @@ interface Props {
 
 const QuoteCard: React.FC<Props> = ({quote, deleteQuote}) => {
   return (
-    <div className="card w-75 mb-3 d-flex">
+    <div className="card mb-3 d-flex w-100">
       <div className="card-body">
         <p className="card-text">
           "{quote.text}"
